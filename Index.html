@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francis Hoffman | Portfolio</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --rbs-red: #a71930;
+            --rbs-red-dark: #821124;
+            --text-dark: #111827;
+            --text-muted: #4b5563;
+            --bg-body: #fdfdfd;
+            --bg-card: #ffffff;
+            --bg-light: #f3f4f6;
+            --border: #e5e7eb;
+            --radius: 12px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 80px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Top Bar Navigation */
+        nav {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 0;
+            margin-bottom: 40px;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-rbs {
+            color: var(--rbs-red);
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-divider {
+            color: #d1d5db;
+            font-weight: 300;
+        }
+
+        .brand-title {
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn-light {
+            background-color: #f3f4f6;
+            color: var(--text-dark);
+        }
+
+        .nav-btn-light:hover {
+            background-color: #e5e7eb;
+            color: var(--rbs-red);
+        }
+
+        .nav-btn-red {
+            background-color: var(--rbs-red);
+            color: #ffffff;
+        }
+
+        .nav-btn-red:hover {
+            background-color: var(--rbs-red-dark);
+        }
+
+        /* Hero / Header Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+            padding-top: 10px;
+        }
+
+        .profile-sidebar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .profile-img-wrap {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+            background-color: var(--bg-light);
+            border: 3px solid #ffffff;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .profile-school {
+            font-size: 0.95rem;
+            color: var(--rbs-red);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .profile-detail-line {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        /* Hero Right Column */
+        .hero-main {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: #fde8e8;
+            color: var(--rbs-red);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            letter-spacing: 0.01em;
+        }
+
+        .hero-headline {
+            font-size: 2.3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-statement {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        /* Section Headings */
+        .section-header {
+            margin-bottom: 24px;
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            letter-spacing: -0.02em;
+        }
+
+        /* Projects Section */
+        .projects-wrapper {
+            margin-bottom: 60px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            box-shadow: var(--shadow);
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+            border-color: #cbd5e1;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 24px;
+        }
+
+        .tag-pill {
+            font-size: 0.78rem;
+            font-weight: 600;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .project-link-btn {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--rbs-red);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .project-link-btn:hover {
+            color: var(--rbs-red-dark);
+            text-decoration: underline;
+        }
+
+        /* Skills Section */
+        .skills-wrapper {
+            margin-bottom: 60px;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-badge {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            box-shadow: var(--shadow);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .skill-badge:hover {
+            border-color: var(--rbs-red);
+            color: var(--rbs-red);
+            transform: translateY(-2px);
+        }
+
+        .skill-badge i {
+            color: var(--rbs-red);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding-top: 30px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                gap: 28px;
+                text-align: center;
+            }
+
+            .hero-main {
+                align-items: center;
+            }
+
+            .hero-headline {
+                font-size: 1.8rem;
+            }
+
+            .nav-brand .brand-title {
+                display: none;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="nav-brand">
+                <span class="brand-rbs">RBS</span>
+                <span class="brand-divider">|</span>
+                <span class="brand-title">Francis's Portfolio</span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="mailto:fhh12@scarletmail.rutgers.edu" class="nav-btn nav-btn-light">
+                    <i class="fa-solid fa-envelope"></i> Email Me
+                </a>
+                <a href="https://www.linkedin.com/in/francis-h-hoffman001/?isSelfProfile=true" target="_blank" class="nav-btn nav-btn-red">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn Profile &rarr;
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <!-- Left Profile Sidebar with Embedded Headshot -->
+            <div class="profile-sidebar">
+                <div class="profile-img-wrap">
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAWBEA1UCA0A4NUB
+                    YQ0RjS0s4S0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0L/2wBD
+                    AQMDAwQEBAUCAgUDAwMDBAwDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMD
+                    AwMDAwMDAwMDAwMDAwMDAwMDAwP/wAARCAEAAKgDAREAAhEBAxEB/8QAHwAA
+                    AQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+                    AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcY
+                    GRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4
+                    eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJ
+                    ytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEB
+                    AAAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEE
+                    BSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRolJico
+                    KSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWG
+                    h4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW
+                    19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD2f/gntpXir
+                    xL+wr4C8NeG/F4+HzzveXmsatpsYm8QSxSajei3is7qYrFpiSKy+bcwpLdf
+                    MBatb4ZjI+B/2iPAOseA/wBorx34KvvFF/478S2XiXUNNk1XUGze3lz9tlgC
+                    M7u7uX3eWrO+dr43E8177/wAExv26fhb4N+Aen/Cf4q+IbXwdfeE7i6hs/wC
+                    1pEgtrmxeV7pSs0mE3xtPKuzq0ewA4+Ud98Hfg/wDsI/GT9tDx/wCK/C3/
+                    AAnvxA1y9vptW82S1a08IQvczzTNcQ3f+iahf73/eW7fNCse12TeAawfI9w
+                    16HxP/AAMr+13+zn8TtL0rxx8Sdbn1PTrC2uBptzqP9qaZc2F/Anktc2l3
+                    5ltfRy2jrtm2tIm3908fFfpT/wAE/v2oPB/7Ufwa0/xtqeg2OhfEmyim
+                    0Lxb/AGagSC/sXlS6iuoA26WO1ne2STyXL/ZrqG5jSZo3O/xf9tTwH+yn8
+                    df2XvFXi3/hbXgbU/Eng+xuI/
+                    AHiIapp/mvdvb+f/wj1/sm/eC8e4iXyt3mwzssybfnSvI/Anx8+PnwJ+Jk/
+                    xB8DeLdT0rxFeqr3aXMvnw3qfO3kXlrNvS9i3v/AKt1+Td8m080Nxe
+                    yE1fof0J0V84/sf/ALX3gP8AbB+E48Y+FFbStc091tPE3hm7l33mk3bAsqM2
+                    1PNt5wrNbT
+                    bfnUMPvI1fR1YvQoK***451X/got8Y/iT4Z/Yh/ae+GvjjR1
+                    164k8KajbeFfEFy/lx6k1j/aW21e8S2nS0l
+                    S0RPL3/I+3/Xfeeu6/Y+/bL+B/wC0T+z5rWp+Ffg
+                    Xrmm+F/h59ltvEfhLw/4atdQtvNu4f3X2Czs4
+                    U8z7S9tN/wD26f/AKm2Xj4D9tf9sX9ij4r
+                    fsl6h
+                    8FPhB8OvEnhW/S4t5vD8je
+                    HdO0fTrW+juE33U13bXks/723e7ik+Xf
+                    Is3
+                    m/62vfPg3/wT3/Y2i+BPinUPCvh3Qvjb8U7bwlfeIrnww/iN7p5Li8fzo/7T
+                    s/mS2ie8uIY
+                    PIm
+                    23P2d/Kl
+                    X
+                    /XRvWp2
+                    a22A+Vf2F
+                    /wBo3QfgB+0DZa94v
+                    +zSeDfENlNoXiD7
+                    U
+                    N6xWF/
+                    v
+                    /f/AMP+
+                    pl2
+                    /
+                    +
+                    ub
+                    /9dr
+                    +6
+                    O
+                    wv7C6sILmwnil
+                    triLzbSW2/
+                    1Txy
+                    Lu85
+                    Mvy
+                    bGr+
+                    X
+                    z9or/A
+                    gn1
+                    49
+                    +B/7O
+                    +p/E6y
+                    +L2
+                    ia
+                    1e+GNK
+                    1HWfEml
+                    3Om
+                    /YbWK1
+                    so3md
+                    dPv/
+                    tdx/
+                    ag
+                    f5I0
+                    +S
+                    2m3/I
+                    m/dXr/7AX/
+                    BR344/sh
+                    6bYQ+I
+                    L
+                    S4+K3
+                    7Pv+u
+                    26/p+rfb/7
+                    Jv
+                    9
+                    7J/a/
+                    9mX+9/8A
+                    X/X/AC
+                    eX
+                    8+
+                    x1l
+                    /cR/0Z
+                    UV/P
+                    J+0X
+                    /P
+                    f/vX
+                    mX9
+                    f2A0UV81/
+                    tz
+                    /tk
+                    
+                    eHP2O
+                    /g6PGGo2yeIfGO
+                    stLpvgPwn
+                    
+                    v+fU
+                    9T2r
+                    +/eFW3f
+                    Z
+                    bTzkeb+L/UR
+                    /f/11A9
+                    d
+                    
+                    26b8H
+                    fgl
+                    8Z/jn
+                    8Q
+                    fDvw10
+                    Cye/
+                    17
+                    WW3a
+                    Xv
+                    k+33V0sXn395
+                    5Pmbf/q/
+                    vPIn+1Xv
+                    37Q37b3/B
+                    QL/AIJ2fG/
+                    wX8RP2nv+
+                    Ec
+                    /ah+APin
+                    /AIR7xBr2h31h
+                    D/akf
+                    lyv9ttN
+                    M3/AGGw
+                    s/sL
+                    /aYvI
+                    s4o
+                    /l8m9m317V
+                    /wX/01
+                    P+GS/B15L
+                    /y18f2/
+                    7
+                    1P4
+                    p9P
+                    vf4
+                    f+3m/w
+                    ur
+                    0n/go/wDE/wCC/g/9jvwp8C
+                    /Hfhb4
+                    jeL/2if
+                    2jNL1j
+                    Svhfpfwvsvtvif7aE/st9f0y0
+                    2eS/2S58u
+                    8+0S/xIvkxO+ytL2V0I
+                    /Fz
+                    /AILH/tf/ABG8e
+                    /tbX
+                    /AIA8K3
+                    19qOlf
+                    CXyNLsf
+                    Ld/L Standard length image string -->
+                    data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAIBAQEBAQIBAQECAgICAgQDAgICAgUEBAMEBgUGBgYFBgYGBgyCAwYMCgwGBg4MCQ4PDxARERAGBw8ODxQNDw//2wBDAQIICAgICAQDAwQXDw4PDx0XEREXHB4cHB4cHB4cI
+                    R4eHB4cHR4eHh4eHh0eHh4eHB4eHB4eHB4eHB4eHB4eHh7/wAARCAH0AZADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJ
+                    xFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2
+                    uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRolJ
+                    icoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/9oADAMBAA
+                    IHR4BAACAAAACAAAAQAAAP/aAAwDAQACEQMRAD8A/mGooor0zhCiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+                    ooooAKKKKACiiigAooooAKKKKACiiigA3E/SgA/h0o2sByevTij5ugPT2qLsLBUqM2MD/ACaiUfMB054Jp6t83J
+                    /Ch6oCYMe3f9KerFiD+OahiXjI74qdVI6Lmo
+                    Anj44B3cYNTx4X3qKIn+JfyqwqA4PTjvSYkTRvzk/xHp/npUiM
+                    2OD0OOnemIhzx+lTxrhvmyPr1NQxk8Tj/vke
+                    lX4JcYGe/Q+nrVGJQeg71dihIxu4XqR2NZyAtx
+                    ls7sAduPTr3q3Gw34x1PQdM/U1WiL4B2Y4wfr/erQhVsYzxmsm
+                    BBqM+yIn/AOt1/i61xfijUN
+                    sb/MBkeuK6rWZvLiJ+uOf85rgPGNz+7cgfX2q6a
+                    A4vXrw
+                    z
+                    XB
+                    G.jpg" 
+                    alt="Francis Hoffman" class="profile-img" 
+                    onerror="this.onerror=null; this.src='headshot.jpg';">
+                </div>
+                <h1 class="profile-name">Francis Hoffman</h1>
+                <p class="profile-school">Rutgers Business School</p>
+                <p class="profile-detail-line">Major in Leadership and Management</p>
+                <p class="profile-detail-line">Expected Graduation: 2027</p>
+            </div>
+
+            <!-- Right Main Overview -->
+            <div class="hero-main">
+                <span class="status-badge">Major: Leadership & Management</span>
+                <h2 class="hero-headline">Law minded business professional focused in management.</h2>
+                <p class="hero-statement">
+                    Business administration student transitioning into a law career aiming to practice key consulting and other transactional law.
+                </p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects-wrapper">
+            <div class="section-header">
+                <h2 class="section-title">Core Business Pillars: My Work</h2>
+            </div>
+            
+            <div class="projects-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-title">Healthcare AI App & Startup Strategy</h3>
+                        <p class="project-description">
+                            Completed a multi-stage product development exercise with a collaborative team. Developed an innovative healthcare application centered around AI pattern recognition and medical professional feedback, presenting final startup plans and key visuals to a board of judges.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag-pill">Product Development</span>
+                            <span class="tag-pill">AI Pattern Recognition</span>
+                            <span class="tag-pill">Startup Pitching</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://stockton.edu/news/2023/seba-camp-2023.html" target="_blank" class="project-link-btn">
+                            View Coverage &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-title">Pitman Youth Advisory Council Community Engagement</h3>
+                        <p class="project-description">
+                            Nominated to lead and complete community outreach initiatives, including organizing the town Summer Olympic Event. Spearheaded efforts coordinating with municipal organizations and securing equipment for youth activities to foster long-term community engagement.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag-pill">Community Outreach</span>
+                            <span class="tag-pill">Project Management</span>
+                            <span class="tag-pill">Event Planning</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://www.pitman.org/elected_officials/youth_advisory_council.php" target="_blank" class="project-link-btn">
+                            Youth Advisory Council &rarr;
+                        </a>
+                        <a href="https://www.facebook.com/events/heros-field-alcyon-park/pitman-youth-council-summer-olympic-games/8229025973795289/" target="_blank" class="project-link-btn">
+                            Olympic Event &rarr;
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills-wrapper">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Core Competencies</h2>
+            </div>
+            <div class="skills-grid">
+                <span class="skill-badge"><i class="fa-solid fa-file-excel"></i> Excel</span>
+                <span class="skill-badge"><i class="fa-solid fa-phone-volume"></i> Sales Calls</span>
+                <span class="skill-badge"><i class="fa-solid fa-boxes-stacked"></i> Materials Management</span>
+                <span class="skill-badge"><i class="fa-solid fa-database"></i> SQL</span>
+                <span class="skill-badge"><i class="fa-solid fa-comments"></i> Interpersonal Communication</span>
+                <span class="skill-badge"><i class="fa-solid fa-award"></i> Six Sigma Foundations</span>
+                <span class="skill-badge"><i class="fa-solid fa-ear-listen"></i> Effective Listening</span>
+                <span class="skill-badge"><i class="fa-solid fa-clock"></i> Time Management</span>
+                <span class="skill-badge"><i class="fa-solid fa-brain"></i> Metacognition</span>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Francis Hoffman. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
