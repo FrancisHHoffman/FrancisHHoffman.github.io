@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francis Hoffman | Portfolio</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #800020; /* Rutgers Burgundy theme */
+            --primary-hover: #5d0017;
+            --secondary: #1e293b;
+            --accent: #d97706;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --border: #e2e8f0;
+            --radius: 12px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation / Header Bar */
+        nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+            margin-bottom: 40px;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero / Profile Section */
+        .hero-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 40px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .profile-img-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--primary);
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            background-color: #e2e8f0;
+            position: relative;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+            letter-spacing: -0.03em;
+        }
+
+        .headline {
+            font-size: 1.15rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        /* Distinct Academic Details Lines */
+        .academic-info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 24px;
+            width: 100%;
+        }
+
+        .academic-line {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .academic-line i {
+            color: var(--primary);
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: var(--text-dark);
+            background: white;
+        }
+
+        .btn-outline:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+            transform: translateY(-1px);
+        }
+
+        /* Card Sections Layout */
+        .section-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 32px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--bg-body);
+            padding-bottom: 12px;
+        }
+
+        .section-title i {
+            color: var(--primary);
+        }
+
+        /* Personal Statement */
+        .statement-text {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: var(--text-dark);
+            font-weight: 500;
+            background: #fff8f8;
+            border-left: 4px solid var(--primary);
+            padding: 18px 24px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Skills Showcase */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background-color: #f1f5f9;
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background-color: #fff8f8;
+            transform: translateY(-2px);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .project-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            background-color: #ffffff;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            border-color: #cbd5e1;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .project-header {
+            margin-bottom: 12px;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .project-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .project-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .tool-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: #fff0f3;
+            padding: 3px 10px;
+            border-radius: 12px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.88rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .project-link:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 40px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 640px) {
+            .hero-card {
+                padding: 28px 20px;
+            }
+
+            .profile-name {
+                font-size: 1.8rem;
+            }
+
+            .headline {
+                font-size: 1rem;
+            }
+
+            .section-card {
+                padding: 24px 20px;
+            }
+
+            .social-buttons {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="nav-logo">Francis Hoffman</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- Header / Profile Section -->
+        <header id="about" class="hero-card">
+            <div class="profile-img-container">
+                <!-- Replace headshot.jpg with your photo in the same folder -->
+                <img src="headshot.jpg" alt="Francis Hoffman" class="profile-img" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Francis+Hoffman&size=150&background=800020&color=fff';">
+            </div>
+            
+            <h1 class="profile-name">Francis Hoffman</h1>
+            <p class="headline">Law minded business professional focused in management</p>
+            
+            <!-- Academic Information (Strictly 2 Distinct Lines) -->
+            <div class="academic-info">
+                <div class="academic-line">
+                    <i class="fa-solid fa-graduation-cap"></i> Major in Leadership and Management (Rutgers Business School)
+                </div>
+                <div class="academic-line">
+                    <i class="fa-solid fa-calendar-days"></i> Expected Graduation: 2027
+                </div>
+            </div>
+
+            <!-- Contact & Social Links -->
+            <div class="social-buttons">
+                <a href="https://www.linkedin.com/in/francis-h-hoffman001/?isSelfProfile=true" target="_blank" class="btn btn-primary">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="mailto:fhh12@scarletmail.rutgers.edu" class="btn btn-outline">
+                    <i class="fa-solid fa-envelope"></i> Email Me
+                </a>
+            </div>
+        </header>
+
+        <!-- Personal Statement Section (Rubric Item: 2 Points) -->
+        <section class="section-card">
+            <h2 class="section-title">
+                <i class="fa-solid fa-user-check"></i> Personal Statement
+            </h2>
+            <p class="statement-text">
+                "Business administration student transitioning into a law career aiming to practice key consulting and other transactional law."
+            </p>
+        </section>
+
+        <!-- Skills Showcase Section (Rubric Item: 2 Points) -->
+        <section id="skills" class="section-card">
+            <h2 class="section-title">
+                <i class="fa-solid fa-gears"></i> Skills Showcase
+            </h2>
+            <div class="skills-grid">
+                <span class="skill-tag"><i class="fa-solid fa-file-excel"></i> Excel</span>
+                <span class="skill-tag"><i class="fa-solid fa-phone-volume"></i> Sales Calls</span>
+                <span class="skill-tag"><i class="fa-solid fa-boxes-stacked"></i> Materials Management</span>
+                <span class="skill-tag"><i class="fa-solid fa-database"></i> SQL</span>
+                <span class="skill-tag"><i class="fa-solid fa-comments"></i> Interpersonal Communication</span>
+                <span class="skill-tag"><i class="fa-solid fa-award"></i> Six Sigma Foundations</span>
+                <span class="skill-tag"><i class="fa-solid fa-ear-listen"></i> Effective Listening</span>
+                <span class="skill-tag"><i class="fa-solid fa-clock"></i> Time Management</span>
+                <span class="skill-tag"><i class="fa-solid fa-brain"></i> Metacognition</span>
+            </div>
+        </section>
+
+        <!-- Projects Showcase Section (Rubric Item: 2 Points) -->
+        <section id="projects" class="section-card">
+            <h2 class="section-title">
+                <i class="fa-solid fa-folder-open"></i> Projects
+            </h2>
+            <div class="projects-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Healthcare AI App & Startup Strategy</h3>
+                        <p class="project-description">
+                            Completed a multi-stage product development exercise with a collaborative team. Developed an innovative healthcare application centered around AI pattern recognition and medical professional feedback, presenting final startup plans and key visuals to a board of judges.
+                        </p>
+                        <div class="project-tools">
+                            <span class="tool-badge">Product Development</span>
+                            <span class="tool-badge">AI Pattern Recognition</span>
+                            <span class="tool-badge">Startup Pitching</span>
+                            <span class="tool-badge">Market Analysis</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://stockton.edu/news/2023/seba-camp-2023.html" target="_blank" class="project-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> View Project Coverage
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Pitman Youth Advisory Council Community Engagement</h3>
+                        <p class="project-description">
+                            Nominated to lead and complete community outreach initiatives, including organizing the town Summer Olympic Event. Spearheaded efforts coordinating with municipal organizations and securing equipment for youth activities to foster long-term community engagement.
+                        </p>
+                        <div class="project-tools">
+                            <span class="tool-badge">Community Outreach</span>
+                            <span class="tool-badge">Project Management</span>
+                            <span class="tool-badge">Event Planning</span>
+                            <span class="tool-badge">Stakeholder Relations</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://www.pitman.org/elected_officials/youth_advisory_council.php" target="_blank" class="project-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Youth Advisory Council
+                        </a>
+                        <a href="https://www.facebook.com/events/heros-field-alcyon-park/pitman-youth-council-summer-olympic-games/8229025973795289/" target="_blank" class="project-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Olympic Event
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Francis Hoffman. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
