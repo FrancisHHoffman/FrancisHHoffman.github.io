@@ -24,6 +24,8 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        section[id] { scroll-margin-top: 90px; }
 
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -68,6 +70,12 @@
         .nav-btn-light:hover { background-color: #e5e7eb; color: var(--rbs-red); }
         .nav-btn-red { background-color: var(--rbs-red); color: #ffffff; }
         .nav-btn-red:hover { background-color: var(--rbs-red-dark); }
+
+        .nav-tab { color: var(--text-dark); font-size: 0.92rem; font-weight: 600; text-decoration: none; padding: 6px 4px; border-bottom: 2px solid transparent; transition: all 0.2s ease; }
+        .nav-tab:hover { color: var(--rbs-red); border-bottom-color: var(--rbs-red); }
+        .resume-row { margin-top: 24px; }
+        .resume-btn { background-color: var(--rbs-red); color: #ffffff; }
+        .resume-btn:hover { background-color: var(--rbs-red-dark); }
 
         /* Hero / Header Section */
         .hero-section {
@@ -205,6 +213,8 @@
             .hero-main { align-items: center; }
             .hero-headline { font-size: 1.8rem; }
             .nav-brand .brand-title { display: none; }
+            .nav-links { gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+            .nav-btn { padding: 6px 12px; }
             .projects-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -221,6 +231,9 @@
             </a>
 
             <div class="nav-links">
+                <a href="#projects" class="nav-tab">Projects</a>
+                <a href="#skills" class="nav-tab">Skills</a>
+                <a href="Resume.pdf" target="_blank" rel="noopener" class="nav-tab"><i class="fa-solid fa-file-lines"></i> Resume</a>
                 <!-- UPDATED: opens Gmail compose in the browser -->
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=fhh12@scarletmail.rutgers.edu&su=Hello%20Francis" target="_blank" rel="noopener" class="nav-btn nav-btn-light">
                     <i class="fa-solid fa-envelope"></i> Email Me
@@ -256,7 +269,7 @@
         </section>
 
         <!-- Projects Section -->
-        <section class="projects-wrapper">
+        <section class="projects-wrapper" id="projects">
             <div class="section-header">
                 <h2 class="section-title">Core Business Pillars: My Work</h2>
             </div>
@@ -308,7 +321,7 @@
         </section>
 
         <!-- Skills Section -->
-        <section class="skills-wrapper">
+        <section class="skills-wrapper" id="skills">
             <div class="section-header">
                 <h2 class="section-title">Skills &amp; Core Competencies</h2>
             </div>
@@ -322,6 +335,11 @@
                 <span class="skill-badge"><i class="fa-solid fa-ear-listen"></i> Effective Listening</span>
                 <span class="skill-badge"><i class="fa-solid fa-clock"></i> Time Management</span>
                 <span class="skill-badge"><i class="fa-solid fa-brain"></i> Metacognition</span>
+            </div>
+            <div class="resume-row">
+                <a href="Resume.pdf" target="_blank" rel="noopener" class="nav-btn resume-btn">
+                    <i class="fa-solid fa-file-pdf"></i> View My Resume
+                </a>
             </div>
         </section>
 
